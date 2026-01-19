@@ -1,0 +1,533 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #ff6b9d 0%, #4ecdc4 50%, #45b7d1 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
+.logo {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b9d 0%, #45b7d1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.motto {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.question {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pen-wrapper {
+    width: 100px;
+    height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+    padding-top: 15px;
+}
+
+.scribble-pen {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.pen-path {
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: scribble 3s ease-in-out infinite;
+}
+
+.pen-icon {
+    opacity: 0;
+    animation: pen-appear 3s ease-in-out infinite;
+}
+
+@keyframes pen-appear {
+    0%, 40% {
+        opacity: 0;
+    }
+    50%, 100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scribble {
+    0% {
+        stroke-dashoffset: 150;
+        opacity: 0.3;
+    }
+    50%, 100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+.journal-input {
+    min-width: 500px;
+    width: 500px;
+    min-height: 60px;
+    height: 60px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: all 0.3s ease;
+    outline: none;
+    line-height: 1.6;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: block;
+    backdrop-filter: blur(10px);
+    word-wrap: break-word;
+    resize: none;
+}
+
+.journal-input:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+}
+
+.journal-input:empty:before {
+    content: attr(data-placeholder);
+    color: #999;
+    font-style: italic;
+}
+
+.journal-input:focus:empty:before {
+    content: attr(data-placeholder);
+    color: #bbb;
+}
+
+/* Back Button Styles */
+.back-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+/* Content Wrapper for Alignment */
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Songs Page Styles */
+.songs-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.songs-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.songs-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.song-player {
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.song-artwork {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ff6b9d 0%, #45b7d1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.artwork-placeholder {
+    font-size: 4rem;
+    opacity: 0.8;
+}
+
+.song-info {
+    text-align: center;
+    width: 100%;
+}
+
+.song-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.song-artist {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.audio-player {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.audio-player::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+.song-link {
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.song-link:hover .song-player {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Song Page Styles */
+.song-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.song-page-content .content-wrapper {
+    max-width: 1400px;
+}
+
+.song-page-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.song-player-section {
+    flex: 1;
+    min-width: 400px;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.song-artwork-large {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff6b9d 0%, #45b7d1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.artwork-placeholder-large {
+    font-size: 6rem;
+    opacity: 0.8;
+}
+
+.song-info-large {
+    text-align: center;
+    width: 100%;
+}
+
+.song-title-large {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.song-artist-large {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.audio-player-large {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.audio-player-large::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+.text-field-section {
+    flex: 1;
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.text-display-large {
+    width: 100%;
+    min-height: 200px;
+    padding: 25px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    line-height: 1.8;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    backdrop-filter: blur(10px);
+    word-wrap: break-word;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.text-display-content {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+    }
+    
+    .question {
+        font-size: 1.5rem;
+    }
+    
+    .pen-wrapper {
+        width: 80px;
+        height: 50px;
+    }
+    
+    .input-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .journal-input {
+        min-width: 100%;
+        width: 100%;
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 12px 18px;
+    }
+    
+    .songs-title {
+        font-size: 1.5rem;
+    }
+    
+    .songs-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .song-player {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    
+    .song-artwork {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .song-page-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .song-player-section {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+    
+    .song-artwork-large {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .artwork-placeholder-large {
+        font-size: 4rem;
+    }
+    
+    .song-title-large {
+        font-size: 1.5rem;
+    }
+    
+    .song-artist-large {
+        font-size: 1.1rem;
+    }
+    
+    .text-field-section {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    
+    .text-display-large {
+        font-size: 1rem;
+        padding: 20px;
+        min-height: 150px;
+    }
+    
+    .text-display-content {
+        font-size: 1rem;
+    }
+    
+    .back-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        margin-bottom: 15px;
+    }
+    
+    .songs-content {
+        gap: 30px;
+    }
+    
+    .song-page-content {
+        gap: 20px;
+    }
+}

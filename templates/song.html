@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tune In - {{ song.title }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo-link">
+            <h1 class="logo">Tune In</h1>
+        </a>
+        <p class="motto">listen to what you're feeling</p>
+    </header>
+    
+    <main class="song-page-content">
+        <div class="content-wrapper">
+            <button onclick="window.history.back()" class="back-button">← Back</button>
+        </div>
+        <div class="song-page-container">
+            <div class="song-player-section">
+                <div class="song-artwork-large">
+                    <div class="artwork-placeholder-large">🎵</div>
+                </div>
+                <div class="song-info-large">
+                    <h2 class="song-title-large">{{ song.title }}</h2>
+                    <p class="song-artist-large">{{ song.artist }}</p>
+                </div>
+                <audio controls class="audio-player-large">
+                    <source src="#" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            
+            <div class="text-field-section">
+                <div class="text-display-large">
+                    <p class="text-display-content">
+                        This is placeholder text that will be replaced with song-related content later. 
+                        The text will be displayed here for users to read and reflect upon while listening to the song.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tune In - Listen to what you're feeling</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo-link">
+            <h1 class="logo">Tune In</h1>
+        </a>
+        <p class="motto">listen to what you're feeling</p>
+    </header>
+    
+    <main class="main-content">
+        <h2 class="question">How do you feel?</h2>
+        
+        <div class="input-container">
+            <div 
+                class="journal-input" 
+                contenteditable="true"
+                data-placeholder="journal here"
+            ></div>
+            <div class="pen-wrapper">
+                <svg class="scribble-pen" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+                    <path class="pen-path" d="M10,90 Q20,30 40,40 T70,50" fill="none" stroke="currentColor" stroke-width="2"/>
+                    
+                </svg>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        const input = document.querySelector('.journal-input');
+        
+        // Handle placeholder
+        input.addEventListener('focus', function() {
+            if (this.textContent.trim() === '') {
+                this.textContent = '';
+            }
+        });
+        
+        input.addEventListener('blur', function() {
+            if (this.textContent.trim() === '') {
+                this.textContent = '';
+            }
+        });
+        
+        // Auto-expand input vertically
+        input.addEventListener('input', function() {
+            // Reset height to get accurate scrollHeight
+            this.style.height = 'auto';
+            // Set height based on content, with min height constraint
+            const height = Math.max(60, this.scrollHeight);
+            this.style.height = height + 'px';
+        });
+        
+        // Handle Enter key to navigate to songs page
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                const text = this.textContent.trim();
+                if (text) {
+                    // Navigate to songs page
+                    window.location.href = '/songs';
+                }
+            }
+        });
+        
+        // Initialize height on load
+        input.style.height = '60px';
+    </script>
+</body>
+</html>

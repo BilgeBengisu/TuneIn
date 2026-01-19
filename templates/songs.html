@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tune In - Songs for You</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo-link">
+            <h1 class="logo">Tune In</h1>
+        </a>
+        <p class="motto">listen to what you're feeling</p>
+    </header>
+    
+    <main class="songs-content">
+        <div class="content-wrapper">
+            <button onclick="window.history.back()" class="back-button">← Back</button>
+        </div>
+        <h2 class="songs-title">these songs might speak to you</h2>
+        
+        <div class="songs-container">
+            <a href="/song/1" class="song-link">
+                <div class="song-player">
+                    <div class="song-artwork">
+                        <div class="artwork-placeholder">🎵</div>
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">Song Title 1</h3>
+                        <p class="song-artist">Artist Name</p>
+                    </div>
+                    <audio controls class="audio-player" onclick="event.stopPropagation()">
+                        <source src="#" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </a>
+            
+            <a href="/song/2" class="song-link">
+                <div class="song-player">
+                    <div class="song-artwork">
+                        <div class="artwork-placeholder">🎵</div>
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">Song Title 2</h3>
+                        <p class="song-artist">Artist Name</p>
+                    </div>
+                    <audio controls class="audio-player" onclick="event.stopPropagation()">
+                        <source src="#" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </a>
+            
+            <a href="/song/3" class="song-link">
+                <div class="song-player">
+                    <div class="song-artwork">
+                        <div class="artwork-placeholder">🎵</div>
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">Song Title 3</h3>
+                        <p class="song-artist">Artist Name</p>
+                    </div>
+                    <audio controls class="audio-player" onclick="event.stopPropagation()">
+                        <source src="#" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
+
